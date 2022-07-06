@@ -27,6 +27,12 @@ export default function Produtos({
     }
 }
 
+  useEffect(()=>{
+    if (quantity >= 10) {
+      setQuantity(10);
+    }
+  }, [quantity])
+
   const products = [
     {
       id: 1,

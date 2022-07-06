@@ -1,25 +1,32 @@
 import React from "react";
 import { FaUserCircle, FaHome, FaBars } from "react-icons/fa";
-import { MenuItem, HeaderName, HeaderMenu, Head } from "./styles";
+import { HeaderName, HeaderMenu, Head } from "./styles";
+import { BrowserRouter as Link } from "react-router-dom";
 
 export default function Header() {
   const itens = [
-    { nome: "Menu", icone: <FaHome /> },
-    { nome: "Login", icone: <FaUserCircle/>},
-    { nome: "", icone: <FaBars/>}
-    ];
+    { nome: "Menu", icone: <FaHome />, path: "/" },
+    { nome: "Login", icone: <FaUserCircle />, path: "/login" },
+    { nome: "", icone: <FaBars />, path: "/bar" },
+  ];
 
-    const renderList = itens.map((item,index) => (
-        <MenuItem key={index}>
-            {item.icone}
-            {item.nome}
-        </MenuItem>
-    ))
-
-    return(
-        <Head>
-            <HeaderName>ACCErvo Cultural</HeaderName>
-            <HeaderMenu>{renderList}</HeaderMenu>
-        </Head>
-    );
+  return (
+    <Head>
+      <HeaderName>ACCErvo Cultural</HeaderName>
+      <HeaderMenu>
+        {itens.map((item, index) => {
+          return (
+            <>
+              <i key={index}>
+                <Link to={item.path}>{item.icone}</Link>
+              </i>
+              <li key={index}>
+                <Link to={item.path}>{item.name}</Link>
+              </li>
+            </>
+          );
+        })}
+      </HeaderMenu>
+    </Head>
+  );
 }

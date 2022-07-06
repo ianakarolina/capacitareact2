@@ -6,7 +6,7 @@ const Input = ({
   marginTop,
   marginLeft,
   placeholder,
-  type
+  type,
 }) => (
   <Container marginTop={marginTop} marginLeft={marginLeft} >
     <InputText

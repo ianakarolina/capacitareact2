@@ -1,14 +1,14 @@
-import './App.css';
-import {Page} from "./styles"
-import Header from "./Components/Header"
-import Main from './Components/Main';
+import  AppRoutes  from "./routes";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./styles/global";
+import { theme } from "./styles/theme";
 
 function App() {
   return (
-    <Page>
-      <Header/>
-      <Main/>
-    </Page>
+    <ThemeProvider theme={theme}>
+      <AppRoutes/>
+      <GlobalStyle/>
+    </ThemeProvider>
   );
 }
 
